@@ -1,5 +1,5 @@
 import FetchSimulation from "../../FetchSimulation";
-import Products from "../../Products/products";
+import Products from "../Products/products";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Spinner from "./Loading";
