@@ -11,6 +11,7 @@ function App() {
 			<NavBar />
 			<Routes>
 				<Route
+					main
 					path="/Preentrega2-React-Flores/"
 					element={<ItemListContainer />}
 				/>
