@@ -1,0 +1,26 @@
+.navbar-light .navbar-nav .nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+a#basic-nav-dropdown,
+.carrito {
+	color: white;
+}
+
+.carrito {
+	position: relative;
+}
+
+span.badge {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	background-color: blue;
+	color: white;
+	font-size: 12px;
+	padding: 5px 10px;
+	border-radius: 100%;
+	transform: translate(70%, 10%);
+}
+
+.navbar-light .navbar-brand {
+	color: white;
+}
