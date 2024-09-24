@@ -1,9 +1,10 @@
 import FetchSimulation from "../../FetchSimulation";
-import Products from "../Products/products";
+import products from "../Products/products";
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
 import Spinner from "./Loading";
 import ItemDetailed from "./ItemDetailed";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const DetailedCard = () => {
 	const [data, SetData] = useState([]);
@@ -12,12 +13,20 @@ const DetailedCard = () => {
 	useEffect(() => {
 		SetData([]);
 		FetchSimulation(
-			Products.filter((filtered) => filtered.id == idItem),
+			products.filter((filtered) => filtered.id == idItem),
 			2000
 		)
 			.then((response) => SetData(response))
 			.catch((error) => console.log(error));
 	}, [idItem]);
+
+	const filteredProducts = products.filter(
+		(filtered) => filtered.id === parseInt(idItem)
+	);
+
+	if (filteredProducts.length === 0) {
+		console.log("No se encontró ningún producto con el ID:", idItem);
+	}
 
 	return data.length === 0 ? (
 		<Spinner />
@@ -26,6 +35,7 @@ const DetailedCard = () => {
 			<>
 				<ItemDetailed
 					key={item.id}
+					id={item.id}
 					title={item.title}
 					description={item.description}
 					image={item.image}
@@ -36,5 +46,4 @@ const DetailedCard = () => {
 		))
 	);
 };
-
 export default DetailedCard;
