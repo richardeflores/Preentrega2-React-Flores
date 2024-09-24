@@ -6,27 +6,20 @@ import ItemDetailed from "./ItemDetailed";
 import { useState } from "react";
 import { useEffect } from "react";
 
-const DetailedCard = () => {
+function DetailedCard() {
 	const [data, SetData] = useState([]);
-	let { idItem } = useParams();
+	const { id } = useParams();
+	console.log(id);
 
 	useEffect(() => {
 		SetData([]);
 		FetchSimulation(
-			products.filter((filtered) => filtered.id == idItem),
+			products.filter((filtered) => filtered.id == id),
 			2000
 		)
 			.then((response) => SetData(response))
 			.catch((error) => console.log(error));
-	}, [idItem]);
-
-	const filteredProducts = products.filter(
-		(filtered) => filtered.id === parseInt(idItem)
-	);
-
-	if (filteredProducts.length === 0) {
-		console.log("No se encontró ningún producto con el ID:", idItem);
-	}
+	}, [id]);
 
 	return data.length === 0 ? (
 		<Spinner />
@@ -35,15 +28,14 @@ const DetailedCard = () => {
 			<>
 				<ItemDetailed
 					key={item.id}
-					id={item.id}
-					title={item.title}
+					nombre={item.title}
 					description={item.description}
-					image={item.image}
+					imagen={item.imagen}
 					category={item.category}
-					price={item.price}
+					precio={item.price}
 				/>
 			</>
 		))
 	);
-};
+}
 export default DetailedCard;
