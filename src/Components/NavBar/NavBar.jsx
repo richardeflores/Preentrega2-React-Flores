@@ -12,7 +12,7 @@ function NavBar() {
 		<>
 			<Navbar bg="dark" data-bs-theme="dark" expand="lg">
 				<Container>
-					<Link to={"/"} className="navbar-brand">
+					<Link to={"/Preentrega2-React-Flores/"} className="navbar-brand">
 						<img
 							src={logo}
 							width="40"
@@ -25,27 +25,37 @@ function NavBar() {
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="ms-auto">
-							<Link to={"/"} className="nav-link">
+							<Link to={"/Preentrega2-React-Flores/"} className="nav-link">
 								Inicio
 							</Link>
 							<NavDropdown title="Categorías" id="basic-nav-dropdown">
-								<Link to={"category/Hombres"} className="dropdown-item">
+								<Link
+									to={"/Preentrega2-React-Flores/category/Hombres"}
+									className="dropdown-item">
 									Hombres
 								</Link>
 								<NavDropdown.Divider />
-								<Link to={"category/Mujeres"} className="dropdown-item">
+								<Link
+									to={"/Preentrega2-React-Flores/category/Mujeres"}
+									className="dropdown-item">
 									Mujeres
 								</Link>
 								<NavDropdown.Divider />
-								<Link to={"category/Ninos"} className="dropdown-item">
+								<Link
+									to={"/Preentrega2-React-Flores/category/Ninos"}
+									className="dropdown-item">
 									Niños
 								</Link>
 								<NavDropdown.Divider />
-								<Link to={"category/Mascotas"} className="dropdown-item">
+								<Link
+									to={"/Preentrega2-React-Flores/category/Mascotas"}
+									className="dropdown-item">
 									Mascotas
 								</Link>
 							</NavDropdown>
-							<Link to={"contacto"} className="nav-link">
+							<Link
+								to={"/Preentrega2-React-Flores/contacto"}
+								className="nav-link">
 								Contacto
 							</Link>
 							<CartWidget />

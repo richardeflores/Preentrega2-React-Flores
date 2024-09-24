@@ -16,7 +16,9 @@ function CardItems(props) {
 						{props.precio}
 					</h6>
 					<div className="card-buttons">
-						<Link className="btn btn-primary btn-lg" to={`item/${props.id}`}>
+						<Link
+							className="btn btn-primary btn-lg"
+							to={`/Preentrega2-React-Flores/item/${props.id}`}>
 							See More
 						</Link>{" "}
 						<Button variant="outline-primary">

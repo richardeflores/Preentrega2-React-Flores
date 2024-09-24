@@ -10,10 +10,22 @@ function App() {
 		<BrowserRouter>
 			<NavBar />
 			<Routes>
-				<Route path="/" element={<ItemListContainer />} />
-				<Route path="contacto" element={<Contacto />} />
-				<Route path="item/:id" element={<DetailedCard />} />
-				<Route path="category/:idCategory" element={<ItemListContainer />} />
+				<Route
+					path="/Preentrega2-React-Flores/"
+					element={<ItemListContainer />}
+				/>
+				<Route
+					path="/Preentrega2-React-Flores/contacto"
+					element={<Contacto />}
+				/>
+				<Route
+					path="/Preentrega2-React-Flores/item/:id"
+					element={<DetailedCard />}
+				/>
+				<Route
+					path="/Preentrega2-React-Flores/category/:idCategory"
+					element={<ItemListContainer />}
+				/>
 			</Routes>
 		</BrowserRouter>
 	);
