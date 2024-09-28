@@ -22,8 +22,8 @@ function NavBar() {
 						/>{" "}
 						Richard Store
 					</Link>
-					<Navbar.Toggle aria-controls="basic-navbar-nav" />
-					<Navbar.Collapse id="basic-navbar-nav">
+					<Navbar.Toggle aria-controls="basic-navbar-nav" className="navIcon" />
+					<Navbar.Collapse id="basic-navbar-nav" className="navIcon">
 						<Nav className="ms-auto">
 							<Link to={"/Preentrega2-React-Flores/"} className="nav-link">
 								Inicio

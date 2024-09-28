@@ -12,7 +12,7 @@ const ItemListContainer = () => {
 
 	useEffect(() => {
 		if (idCategory === undefined) {
-			fetchSimulation(products, 2000)
+			fetchSimulation(products, 1000)
 				.then((response) => SetData(response))
 				.catch((error) => console.log(error));
 		} else {

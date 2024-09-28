@@ -78,7 +78,7 @@ const clothesProducts = [
 		description: "Chaqueta de cuero clásico para un look moderno.",
 		price: "$79.99",
 		imagen:
-			"https://perryellis.vteximg.com.br/arquivos/ids/391526-700-1000/label-0.jpg?v=638507789998870000",
+			"https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTNrxhERgMyJ2Fygedf2_PkQoOtMDnm39lAC-eRQ7K9oINDX3ciYKrtd-jPHkMGN7nKgzIEjgeKGkiXQx8kH93K7x3hU0_6rwHaVjp83HFX8y9cffmxLQoUaw&usqp=CAE",
 		category: "Hombres",
 	},
 	{

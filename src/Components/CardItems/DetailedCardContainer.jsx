@@ -13,7 +13,7 @@ function DetailedCard() {
 	useEffect(() => {
 		FetchSimulation(
 			products.find((filtered) => filtered.id == Number(id)),
-			2000
+			1000
 		)
 			.then((response) => SetData(response))
 			.catch((error) => console.log(error));
