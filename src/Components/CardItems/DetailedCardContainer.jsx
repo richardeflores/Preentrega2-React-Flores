@@ -7,14 +7,12 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 function DetailedCard() {
-	const [data, SetData] = useState([]);
+	const [data, SetData] = useState({});
 	const { id } = useParams();
-	console.log(id);
 
 	useEffect(() => {
-		SetData([]);
 		FetchSimulation(
-			products.filter((filtered) => filtered.id == id),
+			products.find((filtered) => filtered.id == Number(id)),
 			2000
 		)
 			.then((response) => SetData(response))
@@ -24,18 +22,9 @@ function DetailedCard() {
 	return data.length === 0 ? (
 		<Spinner />
 	) : (
-		data.map((item) => (
-			<>
-				<ItemDetailed
-					key={item.id}
-					nombre={item.title}
-					description={item.description}
-					imagen={item.imagen}
-					category={item.category}
-					precio={item.price}
-				/>
-			</>
-		))
+		<>
+			<ItemDetailed product={data} />
+		</>
 	);
 }
 export default DetailedCard;
