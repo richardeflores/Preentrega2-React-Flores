@@ -1,8 +1,8 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
-import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import ButtonAddToCart from "./AddToCart";
 
 function CardItems(props) {
 	return (
@@ -21,11 +21,7 @@ function CardItems(props) {
 							to={`/Preentrega2-React-Flores/item/${props.id}`}>
 							See More
 						</Link>{" "}
-						<Button variant="outline-primary">
-							<h6>
-								<FaShoppingCart size="1rem" />
-							</h6>
-						</Button>
+						<ButtonAddToCart id={props.id} />
 					</div>
 				</Card.Body>
 			</Card>

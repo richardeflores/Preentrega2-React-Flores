@@ -7,6 +7,7 @@ const clothesProducts = [
 		imagen:
 			"https://www.paris.cl/dw/image/v2/BCHW_PRD/on/demandware.static/-/Sites-cencosud-master-catalog/default/dw0d5d45d2/images/imagenes-productos/662/605991-0001-001.jpg?sw=320&sh=409&sm=fit",
 		category: "Hombres",
+		stock: 8,
 	},
 	{
 		id: 2,
@@ -17,6 +18,7 @@ const clothesProducts = [
 		imagen:
 			"https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQaJXxNVKpncHS8TUseDccempSG1Ki0Wi0O0uzc5-D_CbYxCQLyUxm4oEipx_JTce02S6EuOL7MYBFJBp1hDRZQKOKdcEzKbw9_pj52A6MKl1JM7HvRG_hv&usqp=CAE",
 		category: "Mujeres",
+		stock: 10,
 	},
 	{
 		id: 3,
@@ -26,6 +28,7 @@ const clothesProducts = [
 		imagen:
 			"https://www.oldnavy.cl/media/catalog/product/o/n/on808074_on01_1_1.jpg",
 		category: "Ninos",
+		stock: 3,
 	},
 	{
 		id: 4,
@@ -35,6 +38,7 @@ const clothesProducts = [
 		imagen:
 			"https://shop.mango.com/assets/rcs/pics/static/T7/fotos/S/77005674_92.jpg?imwidth=2048&imdensity=1&ts=1723561497795",
 		category: "Mujeres",
+		stock: 6,
 	},
 	{
 		id: 5,
@@ -44,6 +48,7 @@ const clothesProducts = [
 		imagen:
 			"https://limonada.cl/cdn/shop/files/B11082230383302_01_1.jpg?v=1709059384",
 		category: "Ninos",
+		stock: 9,
 	},
 	{
 		id: 6,
@@ -53,6 +58,7 @@ const clothesProducts = [
 		imagen:
 			"https://trialcl.vtexassets.com/arquivos/ids/2992088/label-0.jpg?v=638496057509530000",
 		category: "Hombres",
+		stock: 7,
 	},
 	{
 		id: 7,
@@ -62,6 +68,7 @@ const clothesProducts = [
 		imagen:
 			"https://static.zara.net/assets/public/3bff/e51e/2c014c4c9d17/6ee9dd715c81/05070940081-500-p/05070940081-500-p.jpg?ts=1719390160558&w=412",
 		category: "Mujeres",
+		stock: 6,
 	},
 	{
 		id: 8,
@@ -71,6 +78,7 @@ const clothesProducts = [
 		imagen:
 			"https://assets.mayoral.com/images/t_auto_img,f_auto,c_limit,w_750/v1714464868/14-04051-060-XL-1/camiseta-grafica-nino-nata-cloudy-XL-1.jpg",
 		category: "Ninos",
+		stock: 13,
 	},
 	{
 		id: 9,
@@ -80,6 +88,7 @@ const clothesProducts = [
 		imagen:
 			"https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTNrxhERgMyJ2Fygedf2_PkQoOtMDnm39lAC-eRQ7K9oINDX3ciYKrtd-jPHkMGN7nKgzIEjgeKGkiXQx8kH93K7x3hU0_6rwHaVjp83HFX8y9cffmxLQoUaw&usqp=CAE",
 		category: "Hombres",
+		stock: 8,
 	},
 	{
 		id: 10,
@@ -89,6 +98,7 @@ const clothesProducts = [
 		imagen:
 			"https://dojiw2m9tvv09.cloudfront.net/3539/product/vestidomujerveranosegundacalidad9474.jpg",
 		category: "Mujeres",
+		stock: 7,
 	},
 ];
 
