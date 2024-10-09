@@ -1,9 +1,9 @@
 import NavBar from "./Components/NavBar/NavBar";
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import ItemListContainer from "./Components/ItemListContainer/ItemListContainer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DetailedCard from "./Components/CardItems/DetailedCardContainer";
-import Contacto from "./components/Contacto/Contacto";
+import Contacto from "./Components/Contacto/Contacto";
 import ProviderContextCart from "./Components/ProviderContext/ProviderContextCart";
 
 function App() {

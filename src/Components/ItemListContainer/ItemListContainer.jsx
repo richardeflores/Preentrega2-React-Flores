@@ -31,10 +31,10 @@ const ItemListContainer = () => {
 					<CardItems
 						key={products.id}
 						id={products.id}
-						imagen={products.imagen}
-						nombre={products.title}
+						image={products.image}
+						title={products.title}
 						category={products.category}
-						precio={products.price}
+						price={products.price}
 					/>
 				))}
 			</Container>

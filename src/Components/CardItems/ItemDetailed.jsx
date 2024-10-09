@@ -8,13 +8,13 @@ function ItemDetailed({ product }) {
 		<Container className="container-detailed">
 			<Row>
 				<Card style={{ width: "18rem" }}>
-					<Card.Img variant="top" src={product.imagen} />
+					<Card.Img variant="top" src={product.image} />
 					<Card.Body>
 						<Card.Title>{product.title}</Card.Title>
 						<Card.Text>{product.category}</Card.Text>
 						<Card.Text>{product.description}</Card.Text>
 						<h6 className="card-price" variant="primary">
-							{product.price}
+							$ {product.price}
 						</h6>
 						<div className="card-buttons">
 							<Button variant="outline-primary">
