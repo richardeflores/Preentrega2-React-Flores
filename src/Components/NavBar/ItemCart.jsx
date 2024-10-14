@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { Container, Row, Card, Button } from "react-bootstrap";
 import { FaRegTrashAlt } from "react-icons/fa";
+import { listCartContext } from "../ProviderContext/ProviderContextCart";
 
 const ItemCart = ({ id, title, price, stock, image }) => {
+	const { remove } = useContext(listCartContext);
+
 	return (
 		<Container>
 			<Row>
@@ -12,7 +16,7 @@ const ItemCart = ({ id, title, price, stock, image }) => {
 						<Card.Text>`Cantidad:{stock}`</Card.Text>
 						<Card.Text>`Subtotal: $ {stock * price}`</Card.Text>
 
-						<Button variant="primary">
+						<Button variant="primary" onClick={() => remove(id)}>
 							<FaRegTrashAlt />
 						</Button>
 					</Card.Body>

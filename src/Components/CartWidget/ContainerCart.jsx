@@ -4,12 +4,23 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import ItemCart from "../NavBar/ItemCart";
 import { useContext } from "react";
 import { listCartContext } from "../ProviderContext/ProviderContextCart";
+import { controllerShowCart } from "./ContextCart";
 
 const ContainerCart = () => {
 	const { listCart, clearCart } = useContext(listCartContext);
+	const { showCart, setShowCart } = useContext(controllerShowCart);
+
+	const style = {
+		display: showCart,
+	};
+
+	const closeCart = () => {
+		setShowCart(showCart === "none" ? "flex" : "none");
+	};
+
 	return (
-		<Container>
-			<Button>
+		<Container style={style}>
+			<Button onClick={closeCart}>
 				<h6>
 					<FaRegWindowClose alt="cerrar carrito" />
 				</h6>
