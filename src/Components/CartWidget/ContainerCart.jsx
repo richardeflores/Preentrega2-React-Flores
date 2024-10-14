@@ -34,7 +34,7 @@ const ContainerCart = () => {
 			</div>
 			<div>
 				<Button>Checkout</Button>
-				<Button>
+				<Button onClick={clearCart}>
 					<h6>
 						<FaRegTrashAlt />
 					</h6>
