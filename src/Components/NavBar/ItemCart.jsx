@@ -1,27 +1,41 @@
 import { useContext } from "react";
-import { Container, Row, Card, Button } from "react-bootstrap";
+import { Container, Card, Button, Col, Image } from "react-bootstrap";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { listCartContext } from "../ProviderContext/ProviderContextCart";
+import "./ItemCart.css";
 
 const ItemCart = ({ id, title, price, stock, image }) => {
 	const { remove } = useContext(listCartContext);
 
 	return (
-		<Container>
-			<Row>
-				<Card style={{ width: "18rem" }}>
-					<Card.Img variant="top" src={image} />
-					<Card.Body>
-						<Card.Title>{title}</Card.Title>
-						<Card.Text>`Cantidad:{stock}`</Card.Text>
-						<Card.Text>`Subtotal: $ {stock * price}`</Card.Text>
-
+		<Container fluid className="itemInCart">
+			<div>
+				<Card
+					style={{
+						width: "18rem",
+						display: "flex",
+						flexDirection: "row",
+						width: "100%",
+					}}
+					className="cardImage">
+					<Col xs={6} md={3}>
+						<Image src={image} thumbnail />
+					</Col>
+					<Col
+						style={{
+							display: "flex",
+							flexDirection: "column",
+							width: "100%",
+						}}>
+						<span>{title}</span>
+						<span>`Cantidad:{stock}`</span>
+						<span>`Subtotal: $ {stock * price}`</span>
 						<Button variant="primary" onClick={() => remove(id)}>
 							<FaRegTrashAlt />
 						</Button>
-					</Card.Body>
+					</Col>
 				</Card>
-			</Row>
+			</div>
 		</Container>
 	);
 };

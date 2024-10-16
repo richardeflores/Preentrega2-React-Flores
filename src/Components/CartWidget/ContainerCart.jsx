@@ -27,6 +27,9 @@ const ContainerCart = () => {
 						<FaRegWindowClose alt="cerrar carrito" />
 					</h6>
 				</Button>
+				<h4 style={{ color: "black", textAlign: "left" }}>
+					This is your product list:
+				</h4>
 			</div>
 			<div>
 				{listCart.length === 0 ? (
@@ -34,16 +37,20 @@ const ContainerCart = () => {
 						Your cart is empty, Let's find some products!.
 					</span>
 				) : (
-					listCart.map((product) => (
-						<ItemCart
-							key={product.id}
-							id={product.id}
-							title={product.title}
-							image={product.image}
-							stock={product.stock}
-							price={product.price}
-						/>
-					))
+					<div className="contenedorLista">
+						{listCart.map((product) => (
+							<>
+								<ItemCart
+									key={product.id}
+									id={product.id}
+									title={product.title}
+									image={product.image}
+									stock={product.stock}
+									price={product.price}
+								/>
+							</>
+						))}
+					</div>
 				)}
 			</div>
 			<div className="containerBtnCart">

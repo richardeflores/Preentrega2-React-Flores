@@ -1,7 +1,7 @@
 import Card from "react-bootstrap/Card";
-import { Button, Container, Row } from "react-bootstrap";
-import { FaShoppingCart } from "react-icons/fa";
+import { Container, Row } from "react-bootstrap";
 import "./ItemDetailed.css";
+import ButtonAddToCart from "./AddToCart";
 
 function ItemDetailed({ product }) {
 	return (
@@ -17,12 +17,7 @@ function ItemDetailed({ product }) {
 							$ {product.price}
 						</h6>
 						<div className="card-buttons">
-							<Button variant="outline-primary">
-								<h6>
-									<FaShoppingCart size="1rem" />
-									Add to Cart
-								</h6>
-							</Button>
+							<ButtonAddToCart id={product.id} />
 						</div>
 					</Card.Body>
 				</Card>
