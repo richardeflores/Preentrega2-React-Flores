@@ -5,6 +5,7 @@ import ItemCart from "../NavBar/ItemCart";
 import { useContext } from "react";
 import { listCartContext } from "../ProviderContext/ProviderContextCart";
 import { controllerShowCart } from "./ContextCart";
+import "./ContainerCart.css";
 
 const ContainerCart = () => {
 	const { listCart, clearCart } = useContext(listCartContext);
@@ -19,12 +20,14 @@ const ContainerCart = () => {
 	};
 
 	return (
-		<Container style={style}>
-			<Button onClick={closeCart}>
-				<h6>
-					<FaRegWindowClose alt="cerrar carrito" />
-				</h6>
-			</Button>
+		<Container className="container-cart" style={style}>
+			<div className="containerClose">
+				<Button onClick={closeCart} className="closeButton">
+					<h6>
+						<FaRegWindowClose alt="cerrar carrito" />
+					</h6>
+				</Button>
+			</div>
 			<div>
 				{listCart.length === 0 ? (
 					<span className="emptyCart">
@@ -43,7 +46,7 @@ const ContainerCart = () => {
 					))
 				)}
 			</div>
-			<div>
+			<div className="containerBtnCart">
 				<Button>Checkout</Button>
 				<Button onClick={clearCart}>
 					<h6>
