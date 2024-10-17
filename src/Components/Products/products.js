@@ -56,7 +56,7 @@ const clothesProducts = [
 		description: "Suéter elegante de cuello alto para ocasiones especiales.",
 		price: 24.99,
 		image:
-			"https://trialcl.vtexassets.com/arquivos/ids/2992088/label-0.jpg?v=638496057509530000",
+			"https://trialcl.vtexassets.com/arquivos/ids/3294902-1200-1595?v=638647061620830000&width=1200&height=1595&aspect=true",
 		category: "Hombres",
 		stock: 7,
 	},

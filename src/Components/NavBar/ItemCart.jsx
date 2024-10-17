@@ -12,10 +12,9 @@ const ItemCart = ({ id, title, price, stock, image }) => {
 			<div>
 				<Card
 					style={{
-						width: "18rem",
+						width: "100%",
 						display: "flex",
 						flexDirection: "row",
-						width: "100%",
 					}}
 					className="cardImage">
 					<Col xs={6} md={3}>
@@ -28,8 +27,8 @@ const ItemCart = ({ id, title, price, stock, image }) => {
 							width: "100%",
 						}}>
 						<span>{title}</span>
-						<span>`Cantidad:{stock}`</span>
-						<span>`Subtotal: $ {stock * price}`</span>
+						<span>Cantidad: {stock}</span>
+						<span>Subtotal: {`$ ${(stock * price).toFixed(2)}`}</span>
 						<Button variant="primary" onClick={() => remove(id)}>
 							<FaRegTrashAlt />
 						</Button>
