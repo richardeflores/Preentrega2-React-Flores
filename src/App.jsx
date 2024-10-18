@@ -4,11 +4,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DetailedCard from "./Components/CardItems/DetailedCardContainer";
 import Contacto from "./Components/Contacto/Contacto";
-import ProviderContextCart from "./Components/ProviderContext/ProviderContextCart";
+import GlobalProvider from "./Components/ProviderContext/ProviderContextCart";
 
 function App() {
 	return (
-		<ProviderContextCart>
+		<GlobalProvider>
 			<BrowserRouter>
 				<NavBar />
 				<Routes>
@@ -31,7 +31,7 @@ function App() {
 					/>
 				</Routes>
 			</BrowserRouter>
-		</ProviderContextCart>
+		</GlobalProvider>
 	);
 }
 

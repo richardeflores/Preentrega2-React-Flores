@@ -1,10 +1,10 @@
 import { FaShoppingCart } from "react-icons/fa";
 import Button from "react-bootstrap/Button";
 import { useContext } from "react";
-import { listCartContext } from "../ProviderContext/ProviderContextCart";
+import { GlobalProvider } from "../ProviderContext/ProviderContextCart";
 
 const ButtonAddToCart = ({ id }) => {
-	let { addProduct } = useContext(listCartContext);
+	let { addProduct } = useContext(GlobalProvider);
 
 	return (
 		<Button

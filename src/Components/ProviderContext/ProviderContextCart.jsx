@@ -1,5 +1,4 @@
-import { createContext, useState } from "react";
-import products from "../Products/products";
+import { createContext, useEffect, useState } from "react";
 import {
 	getFirestore,
 	collection,
@@ -10,7 +9,6 @@ import {
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -30,55 +28,119 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export const listCartContext = createContext(null);
+const GlobalContext = createContext([]);
+export const GlobalProvider = ({ children }) => {
+	//Item Status from firebase
+	const [data, setData] = useState([]);
+	const [loading, setLoading] = useState(true);
 
-const ProviderContextCart = ({ children }) => {
-	const [listCart, setListCart] = useState([]);
+	//Cart Status
+	const [cart, setCart] = useState([]);
+	const [orderId, setOrderId] = useState(null);
 
-	const addProduct = (id) => {
-		//Find the product I want to add
-		const productAdd = products.find((product) => product.id === id);
-
-		//Array of products in cart
-		const productInList = listCart.filter((product) => product.id !== id);
-
-		let add = true;
-		for (let product of listCart) {
-			if (product.id === id) {
-				let stock = product.stock;
-
-				if (stock < productAdd.stock) {
-					const newQty = { ...product, stock: stock + 1 };
-					setListCart([...productInList, newQty]);
-				}
-
-				add = false;
-				break;
+	//Getting products from Firebase
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const itemCollection = collection(db, "items");
+				const snapshot = await getDocs(itemCollection);
+				const itemDB = snapshot.docs.map((doc) => ({
+					id: doc.id,
+					...doc.data(),
+				}));
+				setData(itemDB);
+				setLoading(false);
+			} catch (error) {
+				console.log("Error Fetching data", error);
 			}
+		};
+
+		fetchData();
+	}, []);
+
+	const addToCart = (item, qtySelected = 0) => {
+		const itemStock = cart.findIndex((prod) => prod.id === item.id);
+		if (itemStock >= 0) {
+			const newCart = [...cart];
+			if (qtySelected <= 1) {
+				newCart[itemStock].qty++;
+			} else {
+				newCart[itemStock].qty += qtySelected;
+			}
+			setCart(newCart);
+		} else {
+			item.qty = qtySelected;
+			setCart([...cart, item]);
 		}
-		add && setListCart([...productInList, { ...productAdd, stock: 1 }]);
+	};
+
+	const removeFromCart = (id) => {
+		setCarrito((prevCart) => prevCart.filter((prod) => prod.id !== id));
+		Swal.fire({
+			icon: "success",
+			title: "Product out of the cart",
+			toast: true,
+			position: "top-end",
+			showConfirmButton: false,
+			timer: 2000,
+			timerProgressBar: true,
+			didOpen: (toast) => {
+				toast.onmouseenter = Swal.stopTimer;
+				toast.onmouseleave = Swal.resumeTimer;
+			},
+		});
 	};
 
 	const clearCart = () => {
-		setListCart([]); //empty the cart.
+		setCart([]);
 	};
 
-	const remove = (id) => {
-		const updateList = listCart.filter((product) => product.id !== id);
-		setListCart(updateList);
+	const totalItemsInCart = cart.reduce((acc, item) => acc + item.qty, 0);
+	const subtotal = cart.reduce((acc, item) => acc + item.qty * item.price, 0);
+
+	//Order
+	const createOrder = async (buyerInfo) => {
+		const items = cart.map((item) => ({
+			id: item.id,
+			title: item.title,
+			price: item.price,
+			qty: item.qty,
+		}));
+
+		const order = {
+			buyer: buyerInfo,
+			items: items,
+			total: subtotal,
+			date: serverTimestamp(),
+		};
+
+		try {
+			const docRef = await addDoc(collection(db, "orders"), order);
+			setOrderId(docRef.id);
+			clearCart()("Order Created wit ID: ", docRef.id);
+		} catch (error) {
+			console.log("Error creating order: ", error);
+		}
 	};
 
 	return (
-		<listCartContext.Provider
+		<GlobalContext.Provider
 			value={{
-				remove,
-				listCart,
-				addProduct,
+				data,
+				loading,
+				carrito,
+				setCarrito,
+				addToCart,
+				removeFromCart,
 				clearCart,
+				totalItemsInCart,
+				totalPrice,
+				createOrder,
+				fetchOrderById, // CreateOrder function
+				orderId, // CreatedOrderID
 			}}>
 			{children}
-		</listCartContext.Provider>
+		</GlobalContext.Provider>
 	);
 };
-
-export default ProviderContextCart;
+export default GlobalContext;

@@ -1,11 +1,11 @@
 import { FaShoppingCart } from "react-icons/fa";
 import { useContext } from "react";
-import { listCartContext } from "../ProviderContext/ProviderContextCart";
 import { controllerShowCart } from "./ContextCart";
+import GlobalContext from "../ProviderContext/ProviderContextCart";
 
 const CartWidget = () => {
 	const { setShowCart, showCart } = useContext(controllerShowCart);
-	const { listCart } = useContext(listCartContext);
+	const { listCart } = useContext(GlobalContext);
 
 	const cartShowed = () => {
 		setShowCart(showCart === "none" ? "flex" : "none");
