@@ -1,12 +1,11 @@
-const AddQtyCart = (props) => {
+const AddQtyCart = ({ props }) => {
 	return (
-		<div class>
-			AddQtyCart
+		<div className="addQtyCart">
 			<span>Qty:</span>
 			<div>
 				<button id="remove">-</button>
 				<span className="qtyText">{props}</span>
-				<button id="add">=</button>
+				<button id="add">+</button>
 			</div>
 		</div>
 	);
